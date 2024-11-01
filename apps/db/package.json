@@ -1,0 +1,11 @@
+{
+  "name": "personal-site-db",
+  "private": "true",
+  "scripts": {
+    "dev": "bun run run || bun run build",
+    "build": "docker build -t personal-site-db .",
+    "run": "docker run --name personal-site-db -d -p 8090:8090 -v ./pb_data:/pb/pb_data -v ./pb_migrations:/pb/pb_migrations -v ./pb_hooks:/pb/pb_hooks personal-site-db",
+    "stop": "docker stop personal-site-db && docker rm -v personal-site-db",
+    "clipdiff": "git diff --staged | clip.exe"
+  }
+}
